@@ -2,434 +2,340 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="My own website">
-  <meta name="keyword" content="">    
-  <meta name="author" content="Alfiandri Putra Perdana">
-  <title>Alfiandri Putra Perdana</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Royal Revelry: Topremit 16th Anniversary</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/a.png">
-  <!-- Google Font -->
-  <link href='https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-   <!-- Preloader -->
-  <link rel="stylesheet" href="css/preloader.css" type="text/css" media="screen, print"/>
-  <!-- Icon Font-->
-  <link rel="stylesheet" href="style.css">
-  <!-- <link rel="stylesheet" href="css/owl.carousel.css"> -->
-  <!-- <link rel="stylesheet" href="css/owl.theme.default.css"> -->
-  <!-- Animate CSS-->
-  <link rel="stylesheet" href="css/animate.css">
-  <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Style -->
-  <link href="css/style.css" rel="stylesheet">
-  <!-- Responsive CSS -->
-  <link href="css/responsive.css" rel="stylesheet">
-  <!-- Sweet alert -->
-  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.min.css'>
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="js/lte-ie7.js"></script>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            width: 450px;
+            height: 600px;
+            margin: 50px auto;
+            z-index: 10;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+        }
+
+        .card-container:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #30A6FF, #1a75b8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-back {
+            background: white;
+            color: #333;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .crown {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: gold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: #30A6FF;
+            font-weight: bold;
+        }
+
+        .anniversary {
+            font-size: 36px;
+            font-weight: bold;
+            color: gold;
+            margin-top: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .date {
+            font-size: 22px;
+            margin-top: 20px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .confetti {
+            position: fixed;
+            z-index: 1;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            pointer-events: none;
+        }
+
+        .shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    rgba(255, 255, 255, 0) 100%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            to {
+                left: 150%;
+            }
+        }
+
+        .signature {
+            font-style: italic;
+            margin-top: 30px;
+            font-size: 16px;
+        }
+
+        .message {
+            background: rgba(48, 166, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 1px solid #30A6FF;
+        }
+
+        .hover-instruction {
+            position: absolute;
+            bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Preloader -->
-  <div id="preloader">
-      <div id="status">&nbsp;</div>
-  </div>
-
-    <header id="HOME" style="background-position: 50% -125px;">
-      <section class="section_overlay">
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#"><img src="images/a.png" alt="" width="30px"></a>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-front">
+                <div class="shine"></div>
+                <div class="crown">👑</div>
+                <h1>The Royal Revelry</h1>
+                <div class="anniversary">16th Anniversary</div>
+                <p>Topremit</p>
+                <div class="date">12 April 2025</div>
+                <div class="hover-instruction">Hover to open</div>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="#HOME">Home</a></li>
-                <li><a href="#SERVICE">Services</a></li>
-                <li><a href="#ABOUT">About</a></li>
-                <li><a href="#WORK">Work</a></li>
-                <li><a href="#CONTACT">Contact</a></li>
-              </ul>
-            </div><!-- /.navbar-collapse -->
-          </div><!-- /.container -->
-        </nav> 
-
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <div class="home_text wow fadeInUp animated">
-                  <h2>My name's Alfiandri Putra P.</h2>
-                  <p>a back-end programmer</p>
-                  <img src="images/shape.png" alt="">                        
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="container">
-          <div class="row">
-              <div class="col-md-12 text-center">
-                  <div class="scroll_down">
-                    <a href="#SERVICE"><img src="images/scroll.png" alt=""></a>
-                      <h4>Scroll Down</h4>
-                  </div>
-              </div>
-          </div>
-        </div>            
-	    </section>        
-    </header>
-
-    <!-- Service section -->
-    <section class="services" id="SERVICE">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-3 text-center">
-                  <div class="single_service wow fadeInUp" data-wow-delay="1s">
-                      <i class="icon-laptop"></i>
-                      <h2>Programming Languages</h2>
-                      <p>Good understanding of Object Oriented Programming and PHP Framework.</p>
-                  </div>
-              </div>
-              <div class="col-md-3 text-center">
-                  <div class="single_service wow fadeInUp" data-wow-delay="2s">
-                      <i class="icon-gears"></i>
-                      <h2>Development</h2>
-                      <p>Involved in every aspect of the application development process, from early design to testing and launch of the product.</p>
-                  </div>
-              </div>
-              <div class="col-md-3 text-center">
-                  <div class="single_service wow fadeInUp" data-wow-delay="3s">
-                      <i class="icon-pencil"></i>
-                      <h2>Database</h2>
-                      <p>Good knowledge of Relational Databases, especially MySQL.</p>
-                  </div>
-              </div>
-              <div class="col-md-3 text-center">
-                  <div class="single_service wow fadeInUp" data-wow-delay="4s">
-                      <i class="icon-magnifying-glass"></i>
-                      <h2>Working With Front-end</h2>
-                      <p>Supporting the front-end development team in every way.</p>
-                  </div>
-              </div>
-          </div>            
-      </div>
-    </section>
-    <section class="about_us_area" id="ABOUT">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12 text-center">
-                  <div class="about_title">
-                      <h2>About Me</h2>
-                      <img src="images/shape.png" alt="">
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="container">
-          <div class="row">
-              <div class="col-md-4  wow fadeInLeft animated">
-                  <div class="single_progress_bar">
-                      <h2>LARAVEL - 80%</h2>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                          <span class="sr-only">80% Complete</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="single_progress_bar">
-                      <h2>CODEIGNITER - 75%</h2>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                          <span class="sr-only">75% Complete</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="single_progress_bar">
-                      <h2>JAVASCRIPT - 75%</h2>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                          <span class="sr-only">75% Complete</span>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="single_progress_bar">
-                      <h2>DMBS - 75%</h2>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                          <span class="sr-only">75% Complete</span>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4  wow fadeInRight animated">
-                  <p class="about_us_p">Hello! I am Alfiandri, a back-end web developer who responsible for server-side web application logic and integration of the work front-end web developers do. Back-end developers usually write web services and APIs used by front-end developers and mobile application developers.</p>
-              </div>
-              <div class="col-md-4  wow fadeInRight animated">
-                  <p class="about_us_p">In order to make the server, application, and database communicate with each other, I use server-side languages which is PHP to build an application, and tools DBMS like MySQL, and PostgreSQL to find, save, or change data and serve it back to the user in front-end code. To speed up the production, I use some PHP framework like Laravel and CodeIgniter; I also use version control software like Git.</p>
-              </div>
-          </div>
-      </div>
-    </section>
-
-    <section class="work_area" id="WORK">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12 text-center">
-                  <div class="work_title  wow fadeInUp animated">
-                      <h1>Latest Works</h1>
-                      <img src="images/shape.png" alt="">
-                      <p>In this section, will show some of my works.</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col-md-4 no_padding">
-                  <div class="single_image">
-                      <img src="images/works/bungkus.png" alt="Bungkus ID">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Bungkus ID (Marketplace)</h2>
-                          <h4>70% finish</h4>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-4 no_padding">
-                  <div class="single_image">
-                      <img src="images/works/1.jpg" alt="Depot Air">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Management Depot</h2>
-                          <h4>Finished using CodeIgniter</h4>
-                      </div>                        
-                  </div>
-              </div>
-              <div class="col-md-4 no_padding">
-                  <div class="single_image">
-                      <img src="images/works/atvc.png" alt="Asta Toyota">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Astra Toyota Monitoring System</h2>
-                          <h4>Finished using CodeIgniter</h4>
-                      </div>                        
-                  </div>
-              </div>
-          </div>
-          <div class="row pad_top">
-              <div class="col-md-4 no_padding">
-                  <div class="single_image">
-                      <img src="images/works/auto2000.png" alt="Auto 2000 Monitoring">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Auto 2000 Monitoring</h2>
-                          <h4>Finished using CodeIgniter</h4>
-                      </div>                        
-                  </div>
-              </div>
-              <div class="col-md-4 no_padding">
-                  <div class="single_image">
-                      <img src="images/works/cafe-d.png" alt="Cafe">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Point of Sale (Cafe)</h2>
-                          <h4>Finished using CodeIgniter</h4>
-                      </div>                        
-                  </div>
-              </div>
-              <div class="col-md-4 no_padding">
-                  <div class="single_image last_padding">
-                      <img src="images/works/jonathan.png" alt="Jonathan">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Simple E-commerce</h2>
-                          <h4>Finished using Laravel</h4>
-                      </div>                        
-                  </div>
-              </div>
-              <div class="col-md-4 no_padding">
-                  <div class="single_image last_padding">
-                      <img src="images/works/pwa.png" alt="Progressive Web App">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Football PWA (Progressive Web App)</h2>
-                          <h4>Finished using PWA</h4>
-                      </div>                        
-                  </div>
-              </div>
-              <div class="col-md-4 no_padding">
-                  <div class="single_image last_padding">
-                      <img src="images/works/repo.png" alt="Repository">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Online Repository</h2>
-                          <h4>Finished using CodeIgniter</h4>
-                      </div>                        
-                  </div>
-              </div>
-              <div class="col-md-4 no_padding">
-                  <div class="single_image last_padding">
-                      <img src="images/works/tripjuara.png" alt="Trip Juara">
-                      <div class="image_overlay">
-                          <a href="#" class="kirim">View Full Project</a>
-                          <h2>Trip Juara (Travel Site)</h2>
-                          <h4>Finished using Laravel</h4>
-                      </div>                        
-                  </div>
-              </div>
-          </div>           
-      </div>
-    </section>
-    <section class="call_to_action">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 wow fadeInLeft animated">
-                    <div class="left">
-                        <h2>WANNA HIRE ME?</h2>
-                        <p>I will make sure you'll never regret!</p>
-                    </div>
+            <div class="card-back">
+                <h2 id="titleName">Title goes here</h2>
+                <div class="message">
+                    <p id="messageContent"></p>
                 </div>
-                <div class="col-md-3 col-md-offset-1 wow fadeInRight animated">
-                    <div class="baton">
-	                    <a href="https://www.linkedin.com/in/alfiandri" class="btn btn-primary cs-btn">
-	                     Let's Talk
-	                    </a>    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="contact" id="CONTACT">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="contact_title  wow fadeInUp animated">
-                        <h1>get in touch</h1>
-                        <img src="images/shape.png" alt="">
-                        <p>Please do contact me if you want to hire me or just chit-chat.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3  wow fadeInLeft animated">
-                    <div class="single_contact_info">
-                        <h2>Call Me</h2>
-                        <p>+62 852 6112 8536</p>
-                    </div>
-                    <div class="single_contact_info">
-                        <h2>Email Me</h2>
-                        <p>alfiandri.putra@gmail.com</p>
-                    </div>
-                    <div class="single_contact_info">
-                        <h2>Address</h2>
-                        <p>Jl. Brigjend. Katamso Gg. Wakaf No. 2B</p>
-                    </div>
-                </div>
-                <div class="col-md-9  wow fadeInRight animated">
-                    <form class="contact-form" action="#!">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="name" placeholder="Name">
-                                <input type="email" class="form-control" id="email" placeholder="Email">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">                                
-                            </div>
-                            <div class="col-md-6">
-                                <textarea class="form-control" id="message" rows="25" cols="10" placeholder="  Message Texts..."></textarea>
-                                <button type="submit" class="kirim btn btn-default submit-btn form_submit">SEND MESSAGE</button>                                
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="work-with   wow fadeInUp animated">
-                        <h3>looking forward to hearing from you!</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-<footer>
-    <div class="container">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center   wow fadeInUp animated">
-                    <div class="social">
-                        <h2>Follow Me on Here</h2>
-                        <ul class="icon_list">
-                            <li><a href="https://facebook.com/alfi.rezpect" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://github.com/alfiandri" target="_blank"><i class="fa fa-github"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/alfiandri" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="copyright_text   wow fadeInUp animated">
-                        <p>&copy; brandy 2015. All Right Reserved By <a href="https://www.themeforest.net/user/thecodecafe"target="_blank">Code Cafe Team</a></p>
-                        <p>Made with love for creative people.</p>
-                        <p>Edited by Alfiandri P.</p>
-                    </div>
-                </div>
+                <div class="signature">From,<br>Alfiandri Putra Perdana</div>
             </div>
         </div>
     </div>
-</footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- =========================
-     SCRIPTS 
-============================== -->
+    <script>
+        const jokes = {
+            arif: `Hewan apa yang paling pintar matematika?<br>- Kalkulator, eh… salah, itu buaya! Soalnya buaya kalau ngitung "buaya-nya" aja ribuan!`,
+            tata: `Pekerjaan yang gak pernah senyum?<br>- Mas sinis (Masinis)`,
+            adel: `Burung apa yang suka nolak?<br>- Burung gakgak`,
+            bowie: `Bayi apa yang suka dibakar?<br>- Bayi gon (Baygon)`,
+            erik: `Bila gajah jadi ayam, lalu singa jadi ayam, dan kambing jadi ayam, maka ayam jadi apa?<br>- Ayam jadi banyak dong`,
+            indah: `Jika ada 1 kilo batu dan ada 1 kilo kapas, ketika dijatuhkan ke atas kaki, apa yang lebih sakit?<br>- Kaki kita`,
+            jessica: `Apa bedanya soto sama coto?<br>- Kalau soto pake daging sapi, kalau coto pake daging capi`,
+            levina: `Ikan apa yang gak sabaran?<br>- Ikan cakalang, soalnya gak mau nanti-nanti, pokoknya cakalang.`,
+            velia: `Apa nama hewan yang sering ditanyakan ke pedagang?<br>- Jerapah, "sekilo jerapah bu?"`,
+            ahmad: `Benda apa yang kalau dicium malah sakit?<br>- Setrika, soalnya panas!`,
+            koerwin: `Negara apa yang ada di iklan rinso?<br>- Qatar, karena berani Qatar itu baik`,
+            komanto: `Aku tak pernah ada, tapi selalu ada. Tak pernah ada yang melihatku, tapi aku dipercayai setiap orang. Siapakah aku?<br>- Hari esok`,
+            jante: `Negara apa yang paling penting?<br>- Urgent-ina`,
+            rizka: `Masak apa yang ragu-ragu?<br>- Masak iya sih?`,
+            rizky: `Awan apa yang bikin hati senang?<br>- Awanna be with you`,
+            felice: `Artis apa yang mau-mau aja kalau diajakin?<br>- Uya Kuylah.`,
+            sefa: `Belajar bahasa Mandarin, lantai basah artinya apa?<br>- Lhi Chin`,
+            dimas: `Kenapa pohon mangga yang ada di depan rumah harus ditebang?<br>- Kalau dicabut berat`,
+            aan: `Benda kecil apa yang bisa ngeluarin orang?<br>- Bel Rumah`,
+            amel: `Hewan apa yang bisa kaya?<br>- Hewan to be a millionare`,
+            bayu: `Hewan apa yang paling sederhana?<br>- Ala kadal nya`,
+            cindy: `Binatang apa yang bisa nyanyi dangdut?<br>- Cheetah, Cheetah chitatah`,
+            claudya: `Hewan apa yang sangat patuh kepada peraturan lalu lintas?<br>- Unta, Untamakan keselamatan`,
+            danu: `Hewan apa yang pendiam?<br>- Se-mute`,
+            devina: `Apa yang selalu bertemu tapi tidak bisa bersama?<br>- Kamu dan dia`,
+            fany: `Pocong yang disayang ibu-ibu?<br>- Pocongan harga`,
+            ferdi: `Apa persamaan antara uang dan rahasia?<br>- Sama-sama susah dipegang`,
+            isabell: `Kenapa anak kodok suka loncat-loncat?<br>- Biasalah, namanya juga anak-anak. Suka iseng`,
+            jacqlyn: `Hewan apa yang paling aneh? Belalang kupu-kupu<br>- Soalnya kalau siang makan nasi, kalau malam minum susu`,
+            stella: `Apa itu rambut putih, rambut merah, rambut pirang, dan rambut hijau?<br>- Rambutan belum matang`,
+            tasya: `Bis-Bis Apa yang biasanya ada di pohon?<br>- Bis-a burung, bis-a monyet, bis-a ular, ya macam-macam`,
+            verycia: `Apa bedanya Soto dan coto?<br>- Kalau Soto itu dari Daging Sapi, sedangkan coto itu dari daging capi`,
+            rifka: `Hewan apa yang sering menjadi korban pemerasan?<br>- Sapi, soalnya selalu diperah`,
+            winnie: `Bedak, bedak apa yang tak dapat dijual?<br>- Bedak bercula satu`,
+            bryan: `Kenapa anak kodok hobi melompat?<br>- Ya, namanya juga anak-anak`,
+            stephen: `Kapan waktu yang tepat untuk membuka pintu?<br>- Saat pintu dalam keadaan tertutup`,
+            andre: `Bola apa yang mirip kucing?<br>- Bolaemon`
+        };
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.nicescroll.js"></script>
-  <script src="js/owl.carousel.js"></script>
-  <script src="js/wow.js"></script>
-  <script src="js/script.js"></script>
-  <!-- Sweet alert -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-  <script type="text/javascript">
-    $(".kirim").click(function(){
-      Swal.fire({
-        type: 'error',
-        title: 'Oops...',
-        text: 'This feature is not available yet!',
-      })
-    });
-  </script>
+        // Ambil parameter dari URL
+        const params = new URLSearchParams(window.location.search);
+        const name = params.get("q")?.toLowerCase();
+
+        if (name && jokes[name]) {
+            const nameCapitalize = name
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+            $('#titleName').html(`Hi ${nameCapitalize},`);
+            $('#messageContent').html(jokes[name]);
+        }
+
+
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#30A6FF', '#FFD700', '#FF6B6B', '#4CAF50', '#9C27B0'];
+            const confettiCount = 100;
+
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+
+                    // Random position, color, size
+                    const left = Math.random() * 100;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const size = Math.random() * 7 + 5;
+                    const rotate = Math.random() * 360;
+
+                    // Set starting position at top of screen with random horizontal position
+                    confetti.style.left = `${left}vw`;
+                    confetti.style.top = '-20px';
+                    confetti.style.backgroundColor = color;
+                    confetti.style.width = `${size}px`;
+                    confetti.style.height = `${size}px`;
+                    confetti.style.transform = `rotate(${rotate}deg)`;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+
+                    document.body.appendChild(confetti);
+
+                    // Animate falling
+                    let startTime = Date.now();
+                    const duration = Math.random() * 3000 + 2000; // 2-5 seconds
+                    const maxY = window.innerHeight + 100;
+                    const speed = 0.1 + Math.random() * 0.2;
+                    const wobbleSpeed = Math.random() * 2;
+                    let angle = 0;
+
+                    function fall() {
+                        const elapsed = Date.now() - startTime;
+                        const progress = elapsed / duration;
+
+                        if (progress < 1) {
+                            // Calculate position
+                            const y = progress * maxY;
+                            angle += wobbleSpeed;
+                            const x = left + Math.sin(angle) * 15; // Wobble left and right
+
+                            // Update position
+                            confetti.style.transform = `translate(${Math.sin(angle) * 15}px, ${y}px) rotate(${rotate + elapsed * 0.05}deg)`;
+                            confetti.style.opacity = 1 - progress;
+
+                            requestAnimationFrame(fall);
+                        } else {
+                            confetti.remove();
+                        }
+                    }
+
+                    requestAnimationFrame(fall);
+                }, Math.random() * 1500); // Stagger the confetti creation
+            }
+        }
+
+        // Trigger confetti on load
+        window.addEventListener('load', createConfetti);
+
+        // Trigger confetti when card is flipped
+        document.querySelector('.card').addEventListener('mouseenter', function () {
+            setTimeout(createConfetti, 500); // Wait a bit after hover starts
+        });
+
+        // Create new batch of confetti periodically
+        setInterval(createConfetti, 7000);
+    </script>
 </body>
 
 </html>
