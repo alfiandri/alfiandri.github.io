@@ -138,7 +138,7 @@
                     id: 'scene1',
                     title: 'Ruang Tamu',
                     description: 'Ruang tamu modern dengan sofa nyaman dan pemandangan ke halaman.',
-                    imageUrl: '/img/ruangtamu.png', // Placeholder untuk panorama 1
+                    imageUrl: '/images/ruangtamu.png', // Placeholder untuk panorama 1
                     hotspots: [{
                         position: {
                             x: 0.7,
@@ -153,7 +153,7 @@
                     id: 'scene2',
                     title: 'Dapur',
                     description: 'Dapur minimalis dengan peralatan modern.',
-                    imageUrl: '/img/dapur.png', // Placeholder untuk panorama 2
+                    imageUrl: '/images/dapur.png', // Placeholder untuk panorama 2
                     hotspots: [{
                             position: {
                                 x: -0.7,
@@ -178,7 +178,7 @@
                     id: 'scene3',
                     title: 'Kamar Tidur',
                     description: 'Kamar tidur nyaman dengan jendela besar.',
-                    imageUrl: '/img/tempattidur.png', // Placeholder untuk panorama 3
+                    imageUrl: '/images/tempattidur.png', // Placeholder untuk panorama 3
                     hotspots: [{
                         position: {
                             x: -0.8,
